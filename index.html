@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mazhar Clinic – Trusted healthcare in Karachi. General checkup, child care, skin treatment, diabetes & blood pressure care. Book your appointment today." />
+  <meta name="keywords" content="Mazhar Clinic, doctor Karachi, general physician, child care, skin treatment, blood pressure, diabetes" />
+  <title>Mazhar Clinic – Your Health, Our Priority</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏥</text></svg>" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #1a6fb5;
+      --primary-dark: #0f4f8a;
+      --primary-light: #e8f4ff;
+      --accent: #2db88a;
+      --accent-light: #e6f9f3;
+      --text: #1a2332;
+      --text-muted: #5a6a7e;
+      --bg: #ffffff;
+      --bg-soft: #f5f8fc;
+      --border: #e0e9f2;
+      --shadow: 0 4px 24px rgba(26, 111, 181, 0.10);
+      --shadow-hover: 0 12px 40px rgba(26, 111, 181, 0.18);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 { font-family: 'Poppins', sans-serif; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      transition: box-shadow .3s;
+    }
+    .navbar.scrolled { box-shadow: 0 4px 24px rgba(26,111,181,0.12); }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 20px;
+    }
+    .nav-logo-text { line-height: 1.1; }
+    .nav-logo-text .clinic-name {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+    .nav-logo-text .clinic-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: color .2s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0; right: 0;
+      height: 2px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transition: transform .25s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .nav-cta {
+      background: var(--primary);
+      color: white !important;
+      padding: 10px 22px;
+      border-radius: 50px;
+      font-weight: 600 !important;
+      transition: background .2s, transform .15s !important;
+    }
+    .nav-cta:hover { background: var(--primary-dark) !important; transform: translateY(-1px); }
+    .nav-cta::after { display: none !important; }
+
+    .hamburger {
+      display: none;
+      background: none; border: none;
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 70px; left: 0; right: 0;
+      background: white;
+      padding: 20px 5%;
+      border-bottom: 1px solid var(--border);
+      z-index: 999;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: url('hero-bg.jpg') center center / cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 100px 5% 60px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,42,100,0.82) 0%, rgba(26,111,181,0.70) 55%, rgba(15,100,80,0.75) 100%);
+    }
+    .hero-content {
+      position: relative;
+      max-width: 600px;
+      animation: fadeInUp .8s ease both;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.15);
+      color: white;
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      color: white;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .hero h1 span { color: #7eedc9; }
+    .hero p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: white;
+      color: var(--primary);
+      padding: 14px 30px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform .2s, box-shadow .2s;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(0,0,0,0.2); }
+    .btn-outline {
+      background: transparent;
+      color: white;
+      padding: 14px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 2px solid rgba(255,255,255,0.6);
+      transition: background .2s, border-color .2s;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.15); border-color: white; }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+    .hero-stat { color: white; text-align: center; }
+    .hero-stat .num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #7eedc9;
+    }
+    .hero-stat .lbl { font-size: 0.78rem; opacity: 0.8; margin-top: 2px; }
+
+    .hero-visual {
+      position: absolute;
+      right: 5%;
+      bottom: 0;
+      width: min(420px, 45vw);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero-card {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 28px 24px;
+      color: white;
+      width: 100%;
+      animation: float 4s ease-in-out infinite;
+    }
+    .hero-card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .hero-card-item {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .hero-card-item i {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .hero-card-item span { font-size: 0.78rem; font-weight: 600; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 90px 5%; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 560px;
+    }
+    .section-header { margin-bottom: 56px; }
+    .section-header.center { text-align: center; }
+    .section-header.center .section-desc { margin: 0 auto; }
+
+    /* ── HIGHLIGHTS ── */
+    .highlights {
+      background: var(--bg-soft);
+    }
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .highlight-card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      box-shadow: var(--shadow);
+      transition: transform .3s, box-shadow .3s;
+      border: 1px solid var(--border);
+    }
+    .highlight-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+    .highlight-icon {
+      width: 60px; height: 60px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+    .highlight-icon.blue { background: var(--primary-light); color: var(--primary); }
+    .highlight-icon.green { background: var(--accent-light); color: var(--accent); }
+    .highlight-icon.orange { background: #fff4e6; color: #e0821e; }
+    .highlight-icon.purple { background: #f0edff; color: #6c5ce7; }
+    .highlight-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+    .highlight-card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.6; }
+
+    /* ── SERVICES ── */
+    #services { background: white; }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .service-card {
+      background: var(--bg-soft);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      border: 1px solid var(--border);
+      transition: all .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transform: scaleX(0);
+      transition: transform .3s;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); background: white; }
+    .service-icon {
+      width: 64px; height: 64px;
+      border-radius: 16px;
+      background: var(--primary-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+    .service-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+    .service-card p { color: var(--text-muted); font-size: 0.88rem; line-height: 1.65; }
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-top: 16px;
+      text-decoration: none;
+      transition: gap .2s;
+    }
+    .service-link:hover { gap: 10px; }
+
+    /* ── DOCTORS ── */
+    #doctors { background: var(--bg-soft); }
+    .doctors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+    }
+    .doctor-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .doctor-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+    .doctor-img-wrap {
+      position: relative;
+      height: 260px;
+      background: linear-gradient(135deg, var(--primary-light), var(--accent-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .doctor-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform .4s ease;
+    }
+    .doctor-card:hover .doctor-img-wrap img { transform: scale(1.05); }
+    .doctor-avatar {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: white;
+      box-shadow: 0 8px 32px rgba(26,111,181,0.25);
+    }
+    .doctor-badge {
+      position: absolute;
+      bottom: 16px; right: 16px;
+      background: var(--primary);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+    .doctor-body { padding: 24px; }
+    .doctor-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+    .doctor-qual {
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .doctor-spec {
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .doctor-body p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; }
+
+    /* ── FACILITIES ── */
+    #facilities { background: white; }
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .facility-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .3s;
+    }
+    .facility-item img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .facility-item:hover img { transform: scale(1.06); }
+    .facility-item:hover { transform: scale(1.02); }
+    .facility-icon-wrap {
+      text-align: center;
+      color: white;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .facility-icon-wrap i { font-size: 3rem; margin-bottom: 12px; display: block; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
+    .facility-icon-wrap span { font-weight: 700; font-size: 1rem; background: rgba(0,0,0,0.35); padding: 4px 14px; border-radius: 50px; }
+    .facility-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.45) 100%);
+      z-index: 1;
+      transition: opacity .3s;
+    }
+    .facility-item:hover::after { opacity: 0.2; }
+    .facility-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10,40,80,0.7);
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity .3s;
+      z-index: 3;
+    }
+    .facility-item:hover .facility-overlay { opacity: 1; }
+    .facility-overlay span { color: white; font-weight: 600; font-size: 0.9rem; }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg-soft); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-card-main {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: var(--radius);
+      padding: 48px;
+      color: white;
+      text-align: center;
+    }
+    .about-card-main i { font-size: 4rem; margin-bottom: 20px; display: block; opacity: 0.9; }
+    .about-card-main h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
+    .about-card-main p { opacity: 0.85; font-size: 0.9rem; }
+    .about-float {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: white;
+      border-radius: var(--radius-sm);
+      padding: 18px 22px;
+      box-shadow: var(--shadow-hover);
+      border: 1px solid var(--border);
+    }
+    .about-float .num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+    .about-float .lbl { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
+    .about-content h2 { margin-bottom: 20px; }
+    .about-content p { color: var(--text-muted); line-height: 1.8; margin-bottom: 16px; }
+    .mission-vision {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .mv-card {
+      background: white;
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      border: 1px solid var(--border);
+    }
+    .mv-card h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .mv-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: white; }
+    .testimonials-wrap {
+      position: relative;
+      overflow: hidden;
+    }
+    .testimonials-slider {
+      display: flex;
+      gap: 24px;
+      transition: transform .5s ease;
+    }
+    .testimonial-card {
+      min-width: calc(33.33% - 16px);
+      background: var(--bg-soft);
+      border-radius: var(--radius);
+      padding: 32px;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .testimonial-card .quote-icon {
+      font-size: 2.5rem;
+      color: var(--primary-light);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+    .testimonial-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .testimonial-author h4 { font-size: 0.9rem; font-weight: 700; }
+    .testimonial-author span { font-size: 0.78rem; color: var(--text-muted); }
+    .stars { color: #f59e0b; font-size: 0.8rem; margin-bottom: 4px; }
+    .slider-controls {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    .slider-btn {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      background: white;
+      color: var(--primary);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s;
+    }
+    .slider-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+    /* ── APPOINTMENT ── */
+    #appointment { background: var(--bg-soft); }
+    .appointment-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .appt-info { padding-top: 8px; }
+    .appt-info h2 { margin-bottom: 16px; }
+    .appt-info p { color: var(--text-muted); line-height: 1.7; margin-bottom: 28px; }
+    .appt-features { display: flex; flex-direction: column; gap: 16px; }
+    .appt-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .appt-feature-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .appt-feature h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+    .appt-feature p { font-size: 0.82rem; color: var(--text-muted); }
+
+    .appointment-form {
+      background: white;
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+    .appointment-form h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 28px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: 'Open Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--bg-soft);
+      transition: border-color .2s, box-shadow .2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(26,111,181,0.1);
+      background: white;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      padding: 14px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: opacity .2s, transform .15s;
+      margin-top: 8px;
+    }
+    .btn-submit:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-whatsapp {
+      width: 100%;
+      background: #25d366;
+      color: white;
+      border: none;
+      padding: 13px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+    .btn-whatsapp:hover { opacity: 0.9; }
+
+    /* ── CONTACT ── */
+    #contact { background: white; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 48px;
+    }
+    .contact-info-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .contact-card {
+      background: var(--bg-soft);
+      border-radius: var(--radius-sm);
+      padding: 24px;
+      border: 1px solid var(--border);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .contact-card-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .contact-card h4 { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); margin-bottom: 4px; }
+    .contact-card a, .contact-card p {
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      line-height: 1.5;
+    }
+    .contact-card a:hover { color: var(--primary); }
+    .timing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .timing-item {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+    }
+    .timing-item .day { color: var(--text-muted); }
+    .timing-item .time { font-weight: 600; color: var(--accent); }
+    .map-wrap {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+    .map-wrap iframe { display: block; width: 100%; height: 380px; border: none; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0d1f35;
+      color: rgba(255,255,255,0.7);
+      padding: 60px 5% 28px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .footer-brand .clinic-name { color: white; font-family: 'Poppins', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 12px; }
+    .footer-brand p { font-size: 0.85rem; line-height: 1.7; max-width: 260px; }
+    .footer-col h4 {
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color .2s;
+    }
+    .footer-col ul li a:hover { color: #7eedc9; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: 0.82rem; }
+    .social-links { display: flex; gap: 12px; }
+    .social-links a {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .social-links a:hover { background: var(--primary); }
+
+    /* ── FLOATING BUTTONS ── */
+    .floating-btns {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+    .fab {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      text-decoration: none;
+      color: white;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .fab:hover { transform: scale(1.1); box-shadow: 0 10px 32px rgba(0,0,0,0.25); }
+    .fab-whatsapp { background: #25d366; }
+    .fab-call { background: var(--primary); }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .about-grid, .appointment-grid { grid-template-columns: 1fr; }
+      .about-float { position: relative; margin-top: 16px; bottom: auto; right: auto; display: inline-block; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .testimonial-card { min-width: calc(50% - 12px); }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .hero-visual { display: none; }
+      section { padding: 60px 5%; }
+      .testimonial-card { min-width: 100%; }
+      .form-row { grid-template-columns: 1fr; }
+      .mission-vision { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── SUCCESS MSG ── */
+    .success-msg {
+      display: none;
+      background: var(--accent-light);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      text-align: center;
+      font-weight: 600;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <a href="#home" class="nav-logo">
+      <div class="nav-logo-icon"><i class="fas fa-plus"></i></div>
+      <div class="nav-logo-text">
+        <div class="clinic-name">Mazhar Clinic</div>
+        <div class="clinic-sub">Healthcare & Wellness</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#doctors">Doctors</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#appointment" class="nav-cta">Book Appointment</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="closeMobile()">Home</a>
+    <a href="#services" onclick="closeMobile()">Services</a>
+    <a href="#doctors" onclick="closeMobile()">Doctors</a>
+    <a href="#facilities" onclick="closeMobile()">Facilities</a>
+    <a href="#about" onclick="closeMobile()">About</a>
+    <a href="#appointment" onclick="closeMobile()">Book Appointment</a>
+    <a href="#contact" onclick="closeMobile()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-shield-heart"></i> Trusted Healthcare Since 2008
+      </div>
+      <h1>Your Health,<br /><span>Our Priority.</span></h1>
+      <p>Comprehensive medical care delivered with compassion. Our experienced team is dedicated to keeping you and your family healthy.</p>
+      <div class="hero-btns">
+        <a href="#appointment" class="btn-primary"><i class="fas fa-calendar-check"></i> Book Appointment</a>
+        <a href="tel:+923222065914" class="btn-outline"><i class="fas fa-phone"></i> Call Now</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="num">5000+</div>
+          <div class="lbl">Happy Patients</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">15+</div>
+          <div class="lbl">Years Experience</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">6</div>
+          <div class="lbl">Specialist Doctors</div>
+        </div>
+        <div class="hero-stat">
+          <div class="num">7</div>
+          <div class="lbl">Days Open</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-grid">
+          <div class="hero-card-item">
+            <i class="fas fa-stethoscope"></i>
+            <span>General Care</span>
+          </div>
+          <div class="hero-card-item">
+            <i class="fas fa-baby"></i>
+            <span>Child Care</span>
+          </div>
+          <div class="hero-card-item">
+            <i class="fas fa-heartbeat"></i>
+            <span>Heart Health</span>
+          </div>
+          <div class="hero-card-item">
+            <i class="fas fa-flask"></i>
+            <span>Lab Tests</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="highlights fade-in">
+    <div class="section-header center">
+      <div class="section-label">Why Choose Us</div>
+      <h2 class="section-title">Care You Can Trust</h2>
+      <p class="section-desc">We combine medical expertise with genuine compassion to provide the best healthcare experience for every patient.</p>
+    </div>
+    <div class="highlights-grid">
+      <div class="highlight-card fade-in">
+        <div class="highlight-icon blue"><i class="fas fa-user-md"></i></div>
+        <h3>Experienced Doctors</h3>
+        <p>Our qualified physicians bring years of expertise across multiple medical specializations to deliver accurate diagnoses and effective treatments.</p>
+      </div>
+      <div class="highlight-card fade-in">
+        <div class="highlight-icon green"><i class="fas fa-microscope"></i></div>
+        <h3>Modern Equipment</h3>
+        <p>We invest in state-of-the-art medical technology to ensure precision diagnosis and the highest standard of patient care.</p>
+      </div>
+      <div class="highlight-card fade-in">
+        <div class="highlight-icon orange"><i class="fas fa-hand-holding-heart"></i></div>
+        <h3>Affordable Care</h3>
+        <p>Quality healthcare should be accessible to all. We offer transparent, fair pricing without compromising on the quality of treatment.</p>
+      </div>
+      <div class="highlight-card fade-in">
+        <div class="highlight-icon purple"><i class="fas fa-clock"></i></div>
+        <h3>Convenient Hours</h3>
+        <p>Open 7 days a week from 10 AM to 10 PM, we're here whenever you need us — including weekends and holidays.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="fade-in">
+    <div class="section-header center">
+      <div class="section-label">Our Services</div>
+      <h2 class="section-title">Comprehensive Medical Services</h2>
+      <p class="section-desc">From routine checkups to specialized care, we offer a full range of medical services for your entire family.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-in">
+        <div class="service-icon"><i class="fas fa-stethoscope"></i></div>
+        <h3>General Checkup</h3>
+        <p>Comprehensive health assessments and routine examinations to monitor your overall health and detect any issues early.</p>
+        <a href="#appointment" class="service-link">Book Checkup <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon"><i class="fas fa-baby"></i></div>
+        <h3>Child Care</h3>
+        <p>Specialized pediatric care including vaccinations, growth monitoring, and treatment of childhood illnesses with a gentle approach.</p>
+        <a href="#appointment" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon"><i class="fas fa-spa"></i></div>
+        <h3>Skin Treatment</h3>
+        <p>Dermatological care for acne, eczema, allergies, and other skin conditions using proven treatments and modern therapies.</p>
+        <a href="#appointment" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
+        <h3>Blood Pressure & Diabetes Care</h3>
+        <p>Ongoing management and monitoring of hypertension and diabetes with personalized treatment plans and lifestyle guidance.</p>
+        <a href="#appointment" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon"><i class="fas fa-kit-medical"></i></div>
+        <h3>Minor Procedures</h3>
+        <p>Safe in-clinic procedures including wound care, dressings, injections, suturing, and minor surgical interventions.</p>
+        <a href="#appointment" class="service-link">Book Appointment <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card fade-in">
+        <div class="service-icon"><i class="fas fa-vial"></i></div>
+        <h3>Lab & Diagnostic Tests</h3>
+        <p>Fast and accurate blood work, urine analysis, and other diagnostic tests with prompt results and medical interpretation.</p>
+        <a href="#appointment" class="service-link">Book Test <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCTORS -->
+  <section id="doctors">
+    <div class="section-header center fade-in">
+      <div class="section-label">Our Team</div>
+      <h2 class="section-title">Meet Our Doctors</h2>
+      <p class="section-desc">Qualified, compassionate physicians dedicated to your health and wellbeing.</p>
+    </div>
+    <div class="doctors-grid">
+      <div class="doctor-card fade-in">
+        <div class="doctor-img-wrap">
+          <img src="doctor-1.jpg" alt="Dr. Muhammad Mazhar" />
+          <div class="doctor-badge">Available</div>
+        </div>
+        <div class="doctor-body">
+          <h3>Dr. Muhammad Mazhar</h3>
+          <div class="doctor-qual">MBBS, MCPS</div>
+          <div class="doctor-spec"><i class="fas fa-circle" style="font-size:6px;margin-right:6px;vertical-align:middle;"></i>General Physician & Founder</div>
+          <p>Over 15 years of experience in general medicine. Dedicated to providing compassionate and comprehensive primary healthcare to patients of all ages.</p>
+        </div>
+      </div>
+      <div class="doctor-card fade-in">
+        <div class="doctor-img-wrap">
+          <img src="doctor-2.jpg" alt="Dr. Ayesha Siddiqui" />
+          <div class="doctor-badge">Available</div>
+        </div>
+        <div class="doctor-body">
+          <h3>Dr. Ayesha Siddiqui</h3>
+          <div class="doctor-qual">MBBS, DCH</div>
+          <div class="doctor-spec"><i class="fas fa-circle" style="font-size:6px;margin-right:6px;vertical-align:middle;"></i>Pediatrician – Child Specialist</div>
+          <p>Specialist in child health with a gentle approach for young patients. Expert in pediatric conditions, vaccinations, and developmental care.</p>
+        </div>
+      </div>
+      <div class="doctor-card fade-in">
+        <div class="doctor-img-wrap">
+          <img src="doctor-3.jpg" alt="Dr. Tariq Mehmood" />
+          <div class="doctor-badge">Available</div>
+        </div>
+        <div class="doctor-body">
+          <h3>Dr. Tariq Mehmood</h3>
+          <div class="doctor-qual">MBBS, FCPS</div>
+          <div class="doctor-spec"><i class="fas fa-circle" style="font-size:6px;margin-right:6px;vertical-align:middle;"></i>Internal Medicine Specialist</div>
+          <p>Fellowship in internal medicine with specialization in chronic disease management including hypertension, diabetes, and cardiac conditions.</p>
+        </div>
+      </div>
+      <div class="doctor-card fade-in">
+        <div class="doctor-img-wrap">
+          <img src="doctor-4.jpg" alt="Dr. Sana Raza" />
+          <div class="doctor-badge">Available</div>
+        </div>
+        <div class="doctor-body">
+          <h3>Dr. Sana Raza</h3>
+          <div class="doctor-qual">MBBS, DDVL</div>
+          <div class="doctor-spec"><i class="fas fa-circle" style="font-size:6px;margin-right:6px;vertical-align:middle;"></i>Dermatologist – Skin Specialist</div>
+          <p>Expert in treating a wide range of skin conditions including acne, eczema, psoriasis, and allergic dermatitis with modern therapeutic techniques.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACILITIES -->
+  <section id="facilities">
+    <div class="section-header center fade-in">
+      <div class="section-label">Our Clinic</div>
+      <h2 class="section-title">Modern Facilities</h2>
+      <p class="section-desc">Our clinic is equipped with a comfortable, hygienic environment designed to put patients at ease.</p>
+    </div>
+    <div class="facilities-grid fade-in">
+      <div class="facility-item">
+        <img src="facility-reception.jpg" alt="Reception Area" />
+        <div class="facility-icon-wrap">
+          <i class="fas fa-concierge-bell"></i>
+          <span>Reception Area</span>
+        </div>
+        <div class="facility-overlay"><span>Welcoming front desk with helpful staff</span></div>
+      </div>
+      <div class="facility-item">
+        <img src="facility-waiting.jpg" alt="Waiting Lounge" />
+        <div class="facility-icon-wrap">
+          <i class="fas fa-couch"></i>
+          <span>Waiting Lounge</span>
+        </div>
+        <div class="facility-overlay"><span>Comfortable, air-conditioned waiting area</span></div>
+      </div>
+      <div class="facility-item">
+        <img src="facility-consultation.jpg" alt="Consultation Room" />
+        <div class="facility-icon-wrap">
+          <i class="fas fa-door-closed"></i>
+          <span>Consultation Room</span>
+        </div>
+        <div class="facility-overlay"><span>Private, fully equipped consultation rooms</span></div>
+      </div>
+      <div class="facility-item" style="background:linear-gradient(135deg,#e0821e,#c46b10);">
+        <div class="facility-icon-wrap">
+          <i class="fas fa-flask"></i>
+          <span>Laboratory</span>
+        </div>
+        <div class="facility-overlay"><span>In-house lab for quick diagnostic results</span></div>
+      </div>
+      <div class="facility-item" style="background:linear-gradient(135deg,#0d3d6e,#1a6fb5);">
+        <div class="facility-icon-wrap">
+          <i class="fas fa-syringe"></i>
+          <span>Treatment Room</span>
+        </div>
+        <div class="facility-overlay"><span>Sterile minor procedure & treatment room</span></div>
+      </div>
+      <div class="facility-item" style="background:linear-gradient(135deg,#c0392b,#e74c3c);">
+        <div class="facility-icon-wrap">
+          <i class="fas fa-parking"></i>
+          <span>Parking & Access</span>
+        </div>
+        <div class="facility-overlay"><span>Easy access with ample parking space</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-grid">
+      <div class="about-visual fade-in">
+        <div class="about-card-main">
+          <i class="fas fa-hospital-user"></i>
+          <h3>Mazhar Clinic</h3>
+          <p>Providing trusted healthcare to families in Karachi since 2008</p>
+        </div>
+        <div class="about-float">
+          <div class="num">5,000+</div>
+          <div class="lbl">Patients Served</div>
+        </div>
+      </div>
+      <div class="about-content fade-in">
+        <div class="section-label">About Us</div>
+        <h2 class="section-title">Dedicated to Your Health & Wellbeing</h2>
+        <p>Mazhar Clinic was founded with a simple mission: to make quality healthcare accessible, compassionate, and affordable for every family in our community.</p>
+        <p>With over 15 years of experience, our team of qualified doctors and medical staff work together to provide comprehensive care — from routine checkups to managing chronic conditions and specialized treatments.</p>
+        <p>We believe that the best healthcare is built on trust, transparency, and a genuine commitment to each patient's wellbeing.</p>
+        <div class="mission-vision">
+          <div class="mv-card">
+            <h4><i class="fas fa-bullseye"></i> Our Mission</h4>
+            <p>To provide accessible, compassionate, and high-quality medical care to every patient, treating them like family.</p>
+          </div>
+          <div class="mv-card">
+            <h4><i class="fas fa-eye"></i> Our Vision</h4>
+            <p>To be the most trusted healthcare clinic in our community, known for excellence, integrity, and patient-first care.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="section-header center fade-in">
+      <div class="section-label">Testimonials</div>
+      <h2 class="section-title">What Our Patients Say</h2>
+      <p class="section-desc">We're proud to have earned the trust of thousands of patients and their families.</p>
+    </div>
+    <div class="testimonials-wrap fade-in">
+      <div class="testimonials-slider" id="testimonialsSlider">
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>Dr. Mazhar is an exceptional doctor. He listened carefully and diagnosed my issue accurately. The clinic is clean, professional and the staff is very welcoming.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AR</div>
+            <div>
+              <h4>Ahmed Raza</h4>
+              <span>Patient since 2018</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>Brought my kids here for checkups and Dr. Ayesha was amazing with them. Very gentle, patient, and thorough. Highly recommend for child care!</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">FN</div>
+            <div>
+              <h4>Fatima Noor</h4>
+              <span>Patient since 2020</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+          <p>Managing my blood pressure has become so much easier since I started coming to Mazhar Clinic. The doctors are knowledgeable and always available for follow-ups.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MK</div>
+            <div>
+              <h4>Muhammad Khalid</h4>
+              <span>Patient since 2015</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>Affordable prices and excellent care. Dr. Sana treated my skin condition brilliantly. I saw results within weeks. Will always recommend Mazhar Clinic!</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SA</div>
+            <div>
+              <h4>Sara Ansari</h4>
+              <span>Patient since 2022</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-icon">"</div>
+          <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p>The entire team at Mazhar Clinic is professional and caring. Quick appointments, minimal wait times, and genuinely helpful staff every single visit.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">ZH</div>
+            <div>
+              <h4>Zainab Hussain</h4>
+              <span>Patient since 2019</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slider-controls">
+      <button class="slider-btn" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+      <button class="slider-btn" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <!-- APPOINTMENT -->
+  <section id="appointment">
+    <div class="appointment-grid">
+      <div class="appt-info fade-in">
+        <div class="section-label">Book Appointment</div>
+        <h2 class="section-title">Schedule Your Visit Today</h2>
+        <p>Fill in the form and we'll confirm your appointment shortly. You can also book via WhatsApp for instant confirmation.</p>
+        <div class="appt-features">
+          <div class="appt-feature">
+            <div class="appt-feature-icon"><i class="fas fa-clock"></i></div>
+            <div>
+              <h4>Flexible Timing</h4>
+              <p>Open 7 days a week, 10 AM to 10 PM</p>
+            </div>
+          </div>
+          <div class="appt-feature">
+            <div class="appt-feature-icon"><i class="fas fa-shield-check"></i></div>
+            <div>
+              <h4>Qualified Doctors</h4>
+              <p>Board-certified physicians in all specialties</p>
+            </div>
+          </div>
+          <div class="appt-feature">
+            <div class="appt-feature-icon"><i class="fas fa-receipt"></i></div>
+            <div>
+              <h4>Transparent Pricing</h4>
+              <p>No hidden charges – affordable for all</p>
+            </div>
+          </div>
+          <div class="appt-feature">
+            <div class="appt-feature-icon"><i class="fas fa-comments"></i></div>
+            <div>
+              <h4>Follow-up Support</h4>
+              <p>We're available for post-visit queries</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="appointment-form fade-in">
+        <h3><i class="fas fa-calendar-plus" style="color:var(--primary);margin-right:10px;"></i>Book Your Appointment</h3>
+        <form id="apptForm" onsubmit="submitForm(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Full Name *</label>
+              <input type="text" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label>Phone Number *</label>
+              <input type="tel" placeholder="+92 300 0000000" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Select Doctor *</label>
+            <select required>
+              <option value="">-- Select a Doctor --</option>
+              <option>Dr. Muhammad Mazhar – General Physician</option>
+              <option>Dr. Ayesha Siddiqui – Pediatrician</option>
+              <option>Dr. Tariq Mehmood – Internal Medicine</option>
+              <option>Dr. Sana Raza – Dermatologist</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Preferred Date *</label>
+              <input type="date" required />
+            </div>
+            <div class="form-group">
+              <label>Preferred Time *</label>
+              <select required>
+                <option value="">-- Select Time --</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>01:00 PM</option>
+                <option>03:00 PM</option>
+                <option>05:00 PM</option>
+                <option>07:00 PM</option>
+                <option>09:00 PM</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Problem / Message</label>
+            <textarea rows="3" placeholder="Briefly describe your symptoms or concern..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit"><i class="fas fa-calendar-check"></i> &nbsp;Confirm Appointment</button>
+          <a href="https://wa.me/923222065914?text=Hi%2C%20I%20would%20like%20to%20book%20an%20appointment%20at%20Mazhar%20Clinic." target="_blank" class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Book via WhatsApp
+          </a>
+          <div class="success-msg" id="successMsg">✅ Appointment request sent! We'll call you to confirm.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="background:var(--bg-soft);">
+    <div class="section-header fade-in">
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">Contact & Location</h2>
+      <p class="section-desc">We're easy to find and always happy to help. Visit us or give us a call!</p>
+    </div>
+    <div class="contact-grid fade-in">
+      <div class="contact-info-cards">
+        <div class="contact-card">
+          <div class="contact-card-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <h4>Phone Number</h4>
+            <a href="tel:+923222065914">+92 322 2065914</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>Address</h4>
+            <p>Mazhar Clinic, Lahore garden, Lahore, Pakistan</p>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <h4>Clinic Hours</h4>
+            <div class="timing-grid" style="margin-top:8px;">
+              <div class="timing-item"><span class="day">Mon – Sat</span><span class="time">10AM – 10PM</span></div>
+              <div class="timing-item"><span class="day">Sunday</span><span class="time">10AM – 6PM</span></div>
+              <div class="timing-item"><span class="day">Emergency</span><span class="time">Always Open</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-card-icon"><i class="fab fa-whatsapp"></i></div>
+          <div>
+            <h4>WhatsApp</h4>
+            <a href="https://wa.me/923222065914" target="_blank">+92 322 2065914</a>
+          </div>
+        </div>
+      </div>
+      <div class="map-wrap">
+        <!-- Google Maps iframe centered on Lahore – update coordinates once address is confirmed -->
+        <iframe
+          src="https://www.google.com/maps?q=31.587882,74.209642&hl=en&z=14&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mazhar Clinic Location"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="clinic-name">🏥 Mazhar Clinic</div>
+        <p>Trusted healthcare for over 15 years. We're committed to your health, your family's wellbeing, and your peace of mind.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#doctors">Our Doctors</a></li>
+          <li><a href="#facilities">Facilities</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">General Checkup</a></li>
+          <li><a href="#services">Child Care</a></li>
+          <li><a href="#services">Skin Treatment</a></li>
+          <li><a href="#services">BP & Diabetes</a></li>
+          <li><a href="#services">Minor Procedures</a></li>
+          <li><a href="#services">Lab Tests</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+923222065914"><i class="fas fa-phone" style="width:16px;margin-right:6px;"></i>+92 322 2065914</a></li>
+          <li><a href="https://wa.me/923222065914" target="_blank"><i class="fab fa-whatsapp" style="width:16px;margin-right:6px;color:#25d366;"></i>WhatsApp</a></li>
+          <li><a href="#contact"><i class="fas fa-map-marker-alt" style="width:16px;margin-right:6px;"></i>Lahore, Pakistan</a></li>
+          <li><a href="#contact"><i class="fas fa-clock" style="width:16px;margin-right:6px;"></i>10AM – 10PM Daily</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Mazhar Clinic. All rights reserved. Made with ❤️ for better health.</p>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/923222065914" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING BUTTONS -->
+  <div class="floating-btns">
+    <a href="https://wa.me/923222065914?text=Hi%2C%20I%20need%20a%20medical%20appointment%20at%20Mazhar%20Clinic." class="fab fab-whatsapp" target="_blank" title="WhatsApp Us">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:+923222065914" class="fab fab-call" title="Call Us">
+      <i class="fas fa-phone"></i>
+    </a>
+  </div>
+
+  <script>
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    // Hamburger
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    });
+    function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+    // Intersection Observer for fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Testimonials slider
+    let currentSlide = 0;
+    const slider = document.getElementById('testimonialsSlider');
+    function getVisible() { return window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3; }
+    function updateSlider() {
+      const cards = slider.querySelectorAll('.testimonial-card');
+      const total = cards.length;
+      const visible = getVisible();
+      const max = total - visible;
+      if (currentSlide > max) currentSlide = max;
+      if (currentSlide < 0) currentSlide = 0;
+      const pct = (100 / visible) * currentSlide;
+      slider.style.transform = `translateX(-${pct}%)`;
+    }
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      const total = slider.querySelectorAll('.testimonial-card').length;
+      const max = total - getVisible();
+      currentSlide = currentSlide >= max ? 0 : currentSlide + 1;
+      updateSlider();
+    });
+    document.getElementById('prevBtn').addEventListener('click', () => {
+      const total = slider.querySelectorAll('.testimonial-card').length;
+      const max = total - getVisible();
+      currentSlide = currentSlide <= 0 ? max : currentSlide - 1;
+      updateSlider();
+    });
+    // Auto-advance
+    setInterval(() => {
+      const total = slider.querySelectorAll('.testimonial-card').length;
+      const max = total - getVisible();
+      currentSlide = currentSlide >= max ? 0 : currentSlide + 1;
+      updateSlider();
+    }, 4500);
+
+    // Form submit
+    function submitForm(e) {
+      e.preventDefault();
+      document.getElementById('successMsg').style.display = 'block';
+      e.target.reset();
+      setTimeout(() => { document.getElementById('successMsg').style.display = 'none'; }, 5000);
+    }
+  </script>
+</body>
+</html>
